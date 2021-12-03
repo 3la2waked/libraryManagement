@@ -2,7 +2,6 @@ package ui;
 
 import java.util.Collections;
 import java.util.List;
-
 import business.ControllerInterface;
 import business.SystemController;
 import javafx.application.Application;
@@ -41,7 +40,8 @@ public class Start extends Application {
 	private static Stage[] allWindows = { 
 		LoginWindow.INSTANCE,
 		AllMembersWindow.INSTANCE,	
-		AllBooksWindow.INSTANCE
+		AllBooksWindow.INSTANCE,
+		MainWindow.INSTANCE
 	};
 	
 	public static void hideAllWindows() {

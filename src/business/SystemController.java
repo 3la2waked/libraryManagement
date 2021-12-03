@@ -1,16 +1,43 @@
 package business;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import dataaccess.Auth;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
 import dataaccess.User;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import ui.LoginWindow;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class SystemController implements ControllerInterface {
 	public static Auth currentAuth = null;
+
+	@FXML
+	private Button addMember;
+
+	@FXML
+	private Button addBook;
+
+	@FXML
+	private Button addBookCopy;
+
+	@FXML
+	private Button checkoutBook;
+
+	@FXML
+	public void initialize() {
+		if (currentAuth == Auth.LIBRARIAN) {
+			addMember.setVisible(false);
+			addBook.setVisible(false);
+			addBookCopy.setVisible(false);
+		}
+		if (currentAuth == Auth.ADMIN) {
+			checkoutBook.setVisible(false);
+		}
+	}
 	
 	public void login(String id, String password) throws LoginException {
 		DataAccess da = new DataAccessFacade();
@@ -40,6 +67,20 @@ public class SystemController implements ControllerInterface {
 		retval.addAll(da.readBooksMap().keySet());
 		return retval;
 	}
-	
-	
+
+	public void showAddMember() {
+
+	}
+
+	public void showAddBookCopy() {
+
+	}
+
+	public void showCheckoutBook() {
+
+	}
+
+	public void showAddBook() {
+
+	}
 }
