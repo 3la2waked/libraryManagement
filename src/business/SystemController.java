@@ -6,7 +6,9 @@ import dataaccess.DataAccessFacade;
 import dataaccess.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import ui.AddMemberWindow;
 import ui.LoginWindow;
+import ui.Start;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,7 +71,9 @@ public class SystemController implements ControllerInterface {
 	}
 
 	public void showAddMember() {
-
+		Start.hideAllWindows();
+		AddMemberWindow.INSTANCE.init();
+		AddMemberWindow.INSTANCE.show();
 	}
 
 	public void showAddBookCopy() {
