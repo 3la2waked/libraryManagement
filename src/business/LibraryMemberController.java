@@ -77,6 +77,7 @@ public class LibraryMemberController {
 			daf.saveNewMember(member);
 			message.setFill(Color.GREEN);
 			message.setText("New Member Added Successfully");
+			clean();
 			this.view(member);
 		}else {
 			message.setFill(Color.RED);
@@ -86,7 +87,16 @@ public class LibraryMemberController {
 
 
 	}
-
+	public void clean(){
+		message.setText("");
+		fname.setText("");
+		lname.setText("");
+		phone.setText("");
+		street.setText("");
+		state.setText("");
+		city.setText("");
+		zip.setText("");
+	}
 	private boolean isValid(){
 		boolean valid = true;
 
@@ -140,7 +150,7 @@ public class LibraryMemberController {
 			zipLabel.setFill(Color.BLACK);
 		}
 
-		return true;
+		return valid;
 	}
 
 	public void back(){
