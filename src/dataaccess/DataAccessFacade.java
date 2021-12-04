@@ -92,6 +92,8 @@ public class DataAccessFacade implements DataAccess {
 			checkoutRecordEntries.put(key, entry);
 
 			libraryMember.getCheckoutRecord().addCheckoutRecordEntry(entry);
+			DataAccess da = new DataAccessFacade();
+			da.saveNewMember(libraryMember);
 			saveToStorage(StorageType.CHECKOUTENTRIES, checkoutRecordEntries);
 
 			book.updateCopies(bookCopy);

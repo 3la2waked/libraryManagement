@@ -7,10 +7,7 @@ import dataaccess.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import ui.AddBookCopyWindow;
-import ui.AddBookWindow;
-import ui.AddMemberWindow;
-import ui.CheckoutBookWindow;
-import ui.Start;
+import ui.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -94,5 +91,11 @@ public class SystemController implements ControllerInterface {
 		Start.hideAllWindows();
 		AddBookWindow.INSTANCE.init();
 		AddBookWindow.INSTANCE.show();
+	}
+
+	public void showCheckoutRecord() {
+		Start.hideAllWindows();
+		CheckoutRecordWindow.INSTANCE.init();
+		CheckoutRecordWindow.INSTANCE.show();
 	}
 }

@@ -3,6 +3,7 @@ package ui;
 import java.util.Collections;
 import java.util.List;
 
+import business.CheckoutRecord;
 import business.ControllerInterface;
 import business.SystemController;
 import javafx.application.Application;
@@ -48,7 +49,8 @@ public class Start extends Application {
 		CheckoutBookWindow.INSTANCE,
 		AddBookCopyWindow.INSTANCE,
 		CheckoutBookWindow.INSTANCE,
-		AddBookWindow.INSTANCE
+		AddBookWindow.INSTANCE,
+		CheckoutRecordWindow.INSTANCE
 	};
 	
 	public static void hideAllWindows() {
