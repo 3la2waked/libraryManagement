@@ -6,16 +6,14 @@ import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import ui.MainWindow;
 import ui.Start;
 
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CheckoutController {
 
@@ -26,13 +24,38 @@ public class CheckoutController {
     private TextField memberIdTF;
 
     @FXML
+    private ChoiceBox<LibraryMember> memberIdCB;
+
+    @FXML
     private TextField isbnTF;
+
+    @FXML
+    private ChoiceBox<Book> isbnCB;
 
     @FXML
     private Text errorTxt;
 
     @FXML
     private TableView<CheckoutRecordEntry> table;
+
+    @FXML
+    public void initialize() {
+        DataAccess dataAccess = new DataAccessFacade();
+        List<LibraryMember> members = new ArrayList<>(dataAccess.readMemberMap().values());
+        List<Book> books = new ArrayList<>(dataAccess.readBooksMap().values());
+        memberIdCB.getItems().addAll(members);
+        isbnCB.getItems().addAll(books);
+
+        memberIdCB.setOnAction(actionEvent -> {
+            LibraryMember member = memberIdCB.getSelectionModel().getSelectedItem();
+            memberIdTF.setText(member.getMemberId());
+        });
+
+        isbnCB.setOnAction(actionEvent -> {
+            Book book = isbnCB.getSelectionModel().getSelectedItem();
+            isbnTF.setText(book.getIsbn());
+        });
+    }
 
     @FXML
     public void checkoutBook() {

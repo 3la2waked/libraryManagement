@@ -25,5 +25,7 @@
             <Font size="36.0" />
          </font>
       </Text>
+      <ChoiceBox fx:id="memberIdCB" layoutX="390.0" layoutY="137.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="isbnCB" layoutX="390.0" layoutY="187.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
