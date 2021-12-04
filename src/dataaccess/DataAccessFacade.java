@@ -62,7 +62,7 @@ public class DataAccessFacade implements DataAccess {
 		return (HashMap<String, User>)readFromStorage(StorageType.USERS);
 	}
 
-	public void checkoutBookCopy(Book book, LibraryMember libraryMember) {
+	public CheckoutRecordEntry checkoutBookCopy(Book book, LibraryMember libraryMember) {
 		BookCopy bookCopy = book.getNextAvailableCopy();
 		if (null != bookCopy) {
 			bookCopy.changeAvailability();
@@ -78,7 +78,7 @@ public class DataAccessFacade implements DataAccess {
 			else {
 				List<String> keys = new ArrayList<>(checkoutRecordEntries.keySet());
 				List<Integer> intKeys = keys.stream().map(Integer::parseInt).collect(Collectors.toList());
-				key = "" + Collections.max(intKeys) + 1;
+				key = "" + (Collections.max(intKeys) + 1);
 			}
 
 			CheckoutRecordEntry entry = new CheckoutRecordEntry(libraryMember.getCheckoutRecord(), bookCopy);
@@ -86,7 +86,15 @@ public class DataAccessFacade implements DataAccess {
 
 			libraryMember.getCheckoutRecord().addCheckoutRecordEntry(entry);
 			saveToStorage(StorageType.CHECKOUTENTRIES, checkoutRecordEntries);
+
+			book.updateCopies(bookCopy);
+			HashMap<String,Book> bookMap = readBooksMap();
+			bookMap.put(book.getIsbn(), book);
+			saveToStorage(StorageType.BOOKS, bookMap);
+
+			return entry;
 		}
+		return null;
 	}
 	
 	

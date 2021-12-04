@@ -7,7 +7,7 @@ import dataaccess.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import ui.AddMemberWindow;
-import ui.LoginWindow;
+import ui.CheckoutBookWindow;
 import ui.Start;
 
 import java.util.ArrayList;
@@ -81,7 +81,9 @@ public class SystemController implements ControllerInterface {
 	}
 
 	public void showCheckoutBook() {
-
+		Start.hideAllWindows();
+		CheckoutBookWindow.INSTANCE.init();
+		CheckoutBookWindow.INSTANCE.show();
 	}
 
 	public void showAddBook() {
