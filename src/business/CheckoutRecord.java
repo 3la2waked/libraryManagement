@@ -9,14 +9,21 @@ public class CheckoutRecord implements Serializable {
     @Serial
     private static final long serialVersionUID = -6992600305410796258L;
 
+    private final LibraryMember libraryMember;
+
     private final List<CheckoutRecordEntry> checkoutRecordEntries;
 
-    public CheckoutRecord() {
+    public CheckoutRecord(LibraryMember libraryMember) {
+        this.libraryMember = libraryMember;
         checkoutRecordEntries = new ArrayList<>();
     }
 
     public List<CheckoutRecordEntry> getCheckoutRecordEntries() {
         return checkoutRecordEntries;
+    }
+
+    public LibraryMember getLibraryMember() {
+        return libraryMember;
     }
 
     public void addCheckoutRecordEntry(CheckoutRecordEntry checkoutRecordEntry) {

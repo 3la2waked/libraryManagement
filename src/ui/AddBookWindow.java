@@ -56,7 +56,7 @@ public class AddBookWindow extends Stage implements LibWindow {
 		try {
 
 			Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/ui/AddBook.fxml")));
-			Scene scene = new Scene(root, 500, 500);
+			Scene scene = new Scene(root, 1016, 914);
 			setScene(scene);
 			isInitialized(true);
 		} catch (IOException e) {
