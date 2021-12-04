@@ -4,12 +4,16 @@ package business;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import ui.MainWindow;
 import ui.Start;
+import ui.ViewMemberWindow;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class LibraryMemberController {
@@ -47,6 +51,14 @@ public class LibraryMemberController {
 	@FXML
 	private Text message;
 
+	@FXML
+	private Text memberName;
+	@FXML
+	private Text memberDetails;
+
+	@FXML
+	private Button show;
+
 	public void save(){
 
 
@@ -54,14 +66,18 @@ public class LibraryMemberController {
 			DataAccess da = new DataAccessFacade();
 			List<String> retval = new ArrayList<>();
 			retval.addAll(da.readMemberMap().keySet());
+			Collections.sort(retval);
+			System.out.println(retval.toString());
 			int lastId = Integer.parseInt(retval.get(retval.size()-1));
 			lastId++;
+
 			Address address = new Address(street.getText(),city.getText(),state.getText(),zip.getText());
 			LibraryMember member = new LibraryMember(lastId+"",fname.getText(),lname.getText(),phone.getText(),address);
 			DataAccessFacade daf = new DataAccessFacade();
 			daf.saveNewMember(member);
 			message.setFill(Color.GREEN);
 			message.setText("New Member Added Successfully");
+			this.view(member);
 		}else {
 			message.setFill(Color.RED);
 			message.setText("Fields With Red Color are Required");
@@ -124,7 +140,7 @@ public class LibraryMemberController {
 			zipLabel.setFill(Color.BLACK);
 		}
 
-		return valid;
+		return true;
 	}
 
 	public void back(){
@@ -132,6 +148,10 @@ public class LibraryMemberController {
 		MainWindow.INSTANCE.init();
 		MainWindow.INSTANCE.show();
 	}
-	
-	
+
+	public void view(LibraryMember lm){
+		Start.hideAllWindows();
+		ViewMemberWindow.INSTANCE.init();
+		ViewMemberWindow.INSTANCE.show();
+	}
 }
