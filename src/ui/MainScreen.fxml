@@ -10,5 +10,6 @@
       <Button fx:id="checkoutBook" layoutX="308.0" layoutY="14.0" mnemonicParsing="false" onAction="#showCheckoutBook" prefHeight="135.0" prefWidth="135.0" text="Checkout Book" />
       <Button fx:id="addBookCopy" layoutX="14.0" layoutY="162.0" mnemonicParsing="false" onAction="#showAddBookCopy" prefHeight="135.0" prefWidth="135.0" text="Add Book Copy" />
       <Button fx:id="checkoutRecord" layoutX="163.0" layoutY="162.0" mnemonicParsing="false" onAction="#showCheckoutRecord" prefHeight="135.0" prefWidth="135.0" text="Checkout Record" />
+      <Button fx:id="checkoutRecord1" layoutX="308.0" layoutY="162.0" mnemonicParsing="false" onAction="#showCopyOverdue" prefHeight="135.0" prefWidth="135.0" text="Copy Overdue" />
    </children>
 </AnchorPane>

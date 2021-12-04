@@ -50,7 +50,8 @@ public class Start extends Application {
 		AddBookCopyWindow.INSTANCE,
 		CheckoutBookWindow.INSTANCE,
 		AddBookWindow.INSTANCE,
-		CheckoutRecordWindow.INSTANCE
+		CheckoutRecordWindow.INSTANCE,
+		CopyOverdueWindow.INSTANCE
 	};
 	
 	public static void hideAllWindows() {

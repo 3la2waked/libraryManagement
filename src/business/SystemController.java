@@ -98,4 +98,10 @@ public class SystemController implements ControllerInterface {
 		CheckoutRecordWindow.INSTANCE.init();
 		CheckoutRecordWindow.INSTANCE.show();
 	}
+
+	public void showCopyOverdue() {
+		Start.hideAllWindows();
+		CopyOverdueWindow.INSTANCE.init();
+		CopyOverdueWindow.INSTANCE.show();
+	}
 }
