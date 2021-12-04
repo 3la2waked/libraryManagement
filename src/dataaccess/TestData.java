@@ -1,13 +1,11 @@
 package dataaccess;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import business.Address;
-import business.Author;
-import business.Book;
-import business.LibraryMember;
+import business.*;
 
 /**
  * This class loads data into the data repository and also
@@ -26,6 +24,7 @@ public class TestData {
 		TestData td = new TestData();
 		td.bookData();
 		td.libraryMemberData();
+		td.checkoutRecordEntryData();
 		td.userData();
 		DataAccess da = new DataAccessFacade();
 		System.out.println(da.readBooksMap());
@@ -35,8 +34,10 @@ public class TestData {
 	public void bookData() {
 		allBooks.get(0).addCopy();
 		allBooks.get(0).addCopy();
+		allBooks.get(0).addCopy();
 		allBooks.get(1).addCopy();
 		allBooks.get(3).addCopy();
+		allBooks.get(2).addCopy();
 		allBooks.get(2).addCopy();
 		allBooks.get(2).addCopy();
 		DataAccessFacade.loadBookMap(allBooks);
@@ -60,6 +61,16 @@ public class TestData {
 		members.add(libraryMember);
 		
 		DataAccessFacade.loadMemberMap(members);	
+	}
+
+	public void checkoutRecordEntryData() {
+		List<CheckoutRecordEntry> entries = new ArrayList<>();
+		entries.add(new CheckoutRecordEntry(members.get(0).getCheckoutRecord(), allBooks.get(0).getNextAvailableCopy(), LocalDate.now()));
+		entries.add(new CheckoutRecordEntry(members.get(1).getCheckoutRecord(), allBooks.get(1).getNextAvailableCopy(), LocalDate.now().minusDays(35)));
+		entries.add(new CheckoutRecordEntry(members.get(2).getCheckoutRecord(), allBooks.get(2).getNextAvailableCopy(), LocalDate.now().minusDays(35)));
+		entries.add(new CheckoutRecordEntry(members.get(3).getCheckoutRecord(), allBooks.get(3).getNextAvailableCopy(), LocalDate.now()));
+
+		DataAccessFacade.loadCheckoutRecordEntryMap(entries);
 	}
 	
 	///////////// DATA //////////////

@@ -5,6 +5,7 @@ import java.io.*;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -88,7 +89,7 @@ public class DataAccessFacade implements DataAccess {
 				key = "" + (Collections.max(intKeys) + 1);
 			}
 
-			CheckoutRecordEntry entry = new CheckoutRecordEntry(libraryMember.getCheckoutRecord(), bookCopy);
+			CheckoutRecordEntry entry = new CheckoutRecordEntry(libraryMember.getCheckoutRecord(), bookCopy, LocalDate.now());
 			checkoutRecordEntries.put(key, entry);
 
 			libraryMember.getCheckoutRecord().addCheckoutRecordEntry(entry);
@@ -130,6 +131,30 @@ public class DataAccessFacade implements DataAccess {
 		HashMap<String, CheckoutRecord> checkoutRecords = new HashMap<>();
 		memberList.forEach(member -> checkoutRecords.put(member.getMemberId(), new CheckoutRecord(member)));
 		saveToStorage(StorageType.CHECKOUTRECORD, checkoutRecords);
+	}
+
+	static void loadCheckoutRecordEntryMap(List<CheckoutRecordEntry> entries) {
+		HashMap<String, CheckoutRecordEntry> entriesMap = new HashMap<>();
+		for (int i = 0; i < entries.size(); i++) {
+			entriesMap.put("" + (i + 1), entries.get(i));
+		}
+		saveToStorage(StorageType.CHECKOUTENTRIES, entriesMap);
+
+		for (CheckoutRecordEntry entry : entries) {
+			HashMap<String, LibraryMember> membersMap = (HashMap<String, LibraryMember>) readFromStorage(StorageType.MEMBERS);
+			HashMap<String, CheckoutRecord> recordsMap = (HashMap<String, CheckoutRecord>) readFromStorage(StorageType.CHECKOUTRECORD);
+			LibraryMember member = membersMap.get(entry.getCheckoutRecord().getLibraryMember().getMemberId());
+			CheckoutRecord checkoutRecord = recordsMap.get(member.getMemberId());
+
+			member.getCheckoutRecord().addCheckoutRecordEntry(entry);
+			checkoutRecord.addCheckoutRecordEntry(entry);
+
+			recordsMap.put(member.getMemberId(), checkoutRecord);
+			saveToStorage(StorageType.CHECKOUTRECORD, recordsMap);
+
+			membersMap.put(member.getMemberId(), member);
+			saveToStorage(StorageType.MEMBERS, membersMap);
+		}
 	}
 	
 	static void saveToStorage(StorageType type, Object ob) {
