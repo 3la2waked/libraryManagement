@@ -3,12 +3,15 @@ package dataaccess;
 import java.util.HashMap;
 
 import business.Book;
+import business.CheckoutRecordEntry;
 import business.LibraryMember;
 import dataaccess.DataAccessFacade.StorageType;
 
 public interface DataAccess { 
-	public HashMap<String,Book> readBooksMap();
-	public HashMap<String,User> readUserMap();
-	public HashMap<String, LibraryMember> readMemberMap();
-	public void saveNewMember(LibraryMember member); 
+	HashMap<String, Book> readBooksMap();
+	HashMap<String, User> readUserMap();
+	HashMap<String, LibraryMember> readMemberMap();
+	HashMap<String, CheckoutRecordEntry> readCheckoutEntryMap();
+	void saveNewMember(LibraryMember member);
+	void checkoutBookCopy(Book book, LibraryMember libraryMember);
 }
