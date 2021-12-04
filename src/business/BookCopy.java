@@ -1,5 +1,6 @@
 package business;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -7,10 +8,13 @@ import java.io.Serializable;
  */
 final public class BookCopy implements Serializable {
 	
+	@Serial
 	private static final long serialVersionUID = -63976228084869815L;
 	private Book book;
 	private int copyNum;
 	private boolean isAvailable;
+	private CheckoutRecordEntry checkoutRecordEntry;
+
 	BookCopy(Book book, int copyNum, boolean isAvailable) {
 		this.book = book;
 		this.copyNum = copyNum;
@@ -33,9 +37,19 @@ final public class BookCopy implements Serializable {
 	public Book getBook() {
 		return book;
 	}
+
+	public CheckoutRecordEntry getCheckoutRecordEntry() {
+		return checkoutRecordEntry;
+	}
 	
-	public void changeAvailability() {
-		isAvailable = !isAvailable;
+	public void changeAvailability(CheckoutRecordEntry checkoutRecordEntry) {
+		if (isAvailable) {
+			this.checkoutRecordEntry = checkoutRecordEntry;
+			isAvailable = false;
+		}
+		else {
+			isAvailable = true;
+		}
 	}
 	
 	@Override

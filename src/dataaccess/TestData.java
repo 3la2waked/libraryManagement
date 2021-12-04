@@ -65,10 +65,25 @@ public class TestData {
 
 	public void checkoutRecordEntryData() {
 		List<CheckoutRecordEntry> entries = new ArrayList<>();
-		entries.add(new CheckoutRecordEntry(members.get(0).getCheckoutRecord(), allBooks.get(0).getNextAvailableCopy(), LocalDate.now()));
-		entries.add(new CheckoutRecordEntry(members.get(1).getCheckoutRecord(), allBooks.get(1).getNextAvailableCopy(), LocalDate.now().minusDays(35)));
-		entries.add(new CheckoutRecordEntry(members.get(2).getCheckoutRecord(), allBooks.get(2).getNextAvailableCopy(), LocalDate.now().minusDays(35)));
-		entries.add(new CheckoutRecordEntry(members.get(3).getCheckoutRecord(), allBooks.get(3).getNextAvailableCopy(), LocalDate.now()));
+		BookCopy c1 = allBooks.get(0).getNextAvailableCopy();
+		BookCopy c2 = allBooks.get(1).getNextAvailableCopy();
+		BookCopy c3 = allBooks.get(2).getNextAvailableCopy();
+		BookCopy c4 = allBooks.get(3).getNextAvailableCopy();
+
+		CheckoutRecordEntry r1 = new CheckoutRecordEntry(members.get(1).getCheckoutRecord(), c1, LocalDate.now());
+		CheckoutRecordEntry r2 = new CheckoutRecordEntry(members.get(1).getCheckoutRecord(), c2, LocalDate.now().minusDays(35));
+		CheckoutRecordEntry r3 = new CheckoutRecordEntry(members.get(1).getCheckoutRecord(), c3, LocalDate.now().minusDays(35));
+		CheckoutRecordEntry r4 = new CheckoutRecordEntry(members.get(1).getCheckoutRecord(), c4, LocalDate.now());
+
+		c1.changeAvailability(r1);
+		c1.changeAvailability(r2);
+		c1.changeAvailability(r3);
+		c1.changeAvailability(r4);
+
+		entries.add(r1);
+		entries.add(r2);
+		entries.add(r3);
+		entries.add(r4);
 
 		DataAccessFacade.loadCheckoutRecordEntryMap(entries);
 	}

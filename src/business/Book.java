@@ -1,6 +1,7 @@
 package business;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -31,7 +32,6 @@ final public class Book implements Serializable {
 			BookCopy c = copies[i];
 			if(c.equals(copy)) {
 				copies[i] = copy;
-				
 			}
 		}
 	}
@@ -42,7 +42,6 @@ final public class Book implements Serializable {
 			retVal.add(c.getCopyNum());
 		}
 		return retVal;
-		
 	}
 	
 	public void addCopy() {
@@ -51,7 +50,16 @@ final public class Book implements Serializable {
 		newArr[copies.length] = new BookCopy(this, copies.length +1, true);
 		copies = newArr;
 	}
-	
+
+	public List<BookCopy> getOverdueCopies() {
+		List<BookCopy> overdueCopies = new ArrayList<>();
+		for (BookCopy bookCopy : copies) {
+			if (!bookCopy.isAvailable() && bookCopy.getCheckoutRecordEntry().getDueDate().isBefore(LocalDate.now())) {
+				overdueCopies.add(bookCopy);
+			}
+		}
+		return overdueCopies;
+	}
 	
 	@Override
 	public boolean equals(Object ob) {

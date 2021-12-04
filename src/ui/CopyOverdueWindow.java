@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class CopyOverdueWindow extends Stage implements LibWindow {
 	public static final CopyOverdueWindow INSTANCE = new CopyOverdueWindow();
-@FXML
+	@FXML
 	private boolean isInitialized = false;
 
 	public boolean isInitialized() {
@@ -27,16 +27,12 @@ public class CopyOverdueWindow extends Stage implements LibWindow {
     public void init() {
 
 		try {
-
 			Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/ui/CopyOverdue.fxml")));
-			Scene scene = new Scene(root, 500, 500);
+			Scene scene = new Scene(root, 600, 500);
 			setScene(scene);
 			isInitialized(true);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
-
-
 }
