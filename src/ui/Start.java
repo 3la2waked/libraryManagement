@@ -45,7 +45,8 @@ public class Start extends Application {
 		MainWindow.INSTANCE,
 		AddMemberWindow.INSTANCE,
 		ViewMemberWindow.INSTANCE,
-		CheckoutBookWindow.INSTANCE
+		CheckoutBookWindow.INSTANCE,
+		AddBookWindow.INSTANCE
 	};
 	
 	public static void hideAllWindows() {
