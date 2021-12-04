@@ -10,17 +10,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
-import ui.CheckoutBookWindow;
 import ui.MainWindow;
 import ui.Start;
 
-import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CheckoutController {
 
@@ -32,12 +27,6 @@ public class CheckoutController {
 
     @FXML
     private TextField isbnTF;
-
-    @FXML
-    private Button checkoutBtn;
-
-    @FXML
-    private Button cancelBtn;
 
     @FXML
     private Text errorTxt;

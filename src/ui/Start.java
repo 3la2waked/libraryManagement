@@ -46,6 +46,8 @@ public class Start extends Application {
 		AddMemberWindow.INSTANCE,
 		ViewMemberWindow.INSTANCE,
 		CheckoutBookWindow.INSTANCE,
+		AddBookCopyWindow.INSTANCE,
+		CheckoutBookWindow.INSTANCE,
 		AddBookWindow.INSTANCE
 	};
 	

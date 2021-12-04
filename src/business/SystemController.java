@@ -6,6 +6,7 @@ import dataaccess.DataAccessFacade;
 import dataaccess.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import ui.AddBookCopyWindow;
 import ui.AddBookWindow;
 import ui.AddMemberWindow;
 import ui.CheckoutBookWindow;
@@ -78,7 +79,9 @@ public class SystemController implements ControllerInterface {
 	}
 
 	public void showAddBookCopy() {
-
+		Start.hideAllWindows();
+		AddBookCopyWindow.INSTANCE.init();
+		AddBookCopyWindow.INSTANCE.show();
 	}
 
 	public void showCheckoutBook() {
