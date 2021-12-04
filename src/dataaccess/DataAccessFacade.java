@@ -28,14 +28,6 @@ public class DataAccessFacade implements DataAccess {
 		String memberId = member.getMemberId();
 		mems.put(memberId, member);
 		saveToStorage(StorageType.MEMBERS, mems);
-		addCheckoutRecord(member.getCheckoutRecord(), member);
-	}
-
-	public void addCheckoutRecord(CheckoutRecord checkoutRecord, LibraryMember libraryMember) {
-		HashMap<String, CheckoutRecord> records = readCheckoutRecordMap();
-		String memberId = libraryMember.getMemberId();
-		records.put(memberId, checkoutRecord);
-		saveToStorage(StorageType.CHECKOUTRECORD, checkoutRecord);
 	}
 	
 	@SuppressWarnings("unchecked")
