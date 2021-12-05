@@ -53,6 +53,12 @@ public class BookCopyController {
     }
 
     @FXML
+    public void logout() {
+        Start.hideAllWindows();
+        Start.primStage().show();
+    }
+
+    @FXML
     public void cancel() {
         Start.hideAllWindows();
         if (!MainWindow.INSTANCE.isInitialized())

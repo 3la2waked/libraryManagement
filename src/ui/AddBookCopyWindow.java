@@ -20,7 +20,7 @@ public class AddBookCopyWindow extends Stage implements LibWindow {
     public void init() {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/ui/AddBookCopy.fxml")));
-            Scene scene = new Scene(root, 600, 400);
+            Scene scene = new Scene(root, 576, 440);
             setScene(scene);
             isInitialized(true);
         } catch (IOException e) {

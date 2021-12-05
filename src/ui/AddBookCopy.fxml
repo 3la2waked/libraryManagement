@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,20 +8,44 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.BookCopyController">
+<AnchorPane prefHeight="440.0" prefWidth="576.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.BookCopyController">
    <children>
-      <Text layoutX="198.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Book Copy">
-         <font>
-            <Font size="31.0" />
-         </font>
-      </Text>
-      <Label layoutX="23.0" layoutY="89.0" text="ISBN" />
-      <TextField fx:id="isbnTF" layoutX="65.0" layoutY="84.0" />
-      <TableView fx:id="table" layoutX="23.0" layoutY="124.0" prefHeight="200.0" prefWidth="552.0" />
-      <Button fx:id="searchBtn" layoutX="245.0" layoutY="84.0" mnemonicParsing="false" text="Search" onAction="#search" />
-      <Text fx:id="errorTxt" fill="#ff3333" layoutX="25.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Button fx:id="addCopyBtn" layoutX="25.0" layoutY="359.0" mnemonicParsing="false" text="Add Copy" onAction="#addBookCopy" />
-      <Button fx:id="cancelBtn" layoutX="118.0" layoutY="359.0" mnemonicParsing="false" text="Cancel" onAction="#cancel" />
+      <AnchorPane prefHeight="61.0" prefWidth="577.0" style="-fx-background-color: #73D5B8;">
+         <children>
+            <Text fill="WHITE" layoutX="74.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Book Copy">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Text>
+            <Button fx:id="cancelBtn" layoutX="14.0" layoutY="16.0" mnemonicParsing="false" onAction="#cancel" prefHeight="32.0" prefWidth="33.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/arrow-left-white.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="531.0" layoutY="16.0" mnemonicParsing="false" onAction="#logout" prefHeight="32.0" prefWidth="33.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/logout-variant-white.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="77.0" prefHeight="363.0" prefWidth="577.0" style="-fx-background-color: #73D5B8;">
+         <children>
+            <Label layoutX="14.0" layoutY="30.0" text="ISBN" textFill="WHITE" />
+            <TextField fx:id="isbnTF" layoutX="56.0" layoutY="25.0" />
+            <TableView fx:id="table" layoutX="14.0" layoutY="65.0" prefHeight="200.0" prefWidth="552.0" />
+            <Button fx:id="searchBtn" layoutX="236.0" layoutY="25.0" mnemonicParsing="false" onAction="#search" prefHeight="27.0" prefWidth="65.0" style="-fx-background-color: #2fa17e;" text="Search" textFill="WHITE" />
+            <Text fx:id="errorTxt" fill="#ff3333" layoutX="16.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Button fx:id="addCopyBtn" layoutX="16.0" layoutY="300.0" mnemonicParsing="false" onAction="#addBookCopy" prefHeight="27.0" prefWidth="99.0" style="-fx-background-color: #2fa17e;" text="Add Copy" textFill="WHITE" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
