@@ -1,22 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 
-<AnchorPane prefHeight="499.0" prefWidth="595.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.CheckoutRecordController">
+<AnchorPane prefHeight="162.0" prefWidth="406.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.CheckoutRecordController">
     <children>
-
-      <Button fx:id="back" layoutX="14.0" layoutY="443.0" mnemonicParsing="false" onAction="#back" prefHeight="42.0" prefWidth="100.0" text="&lt;&lt; Back" />
-      <Text fx:id="memberName" layoutX="14.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checkout Record" textAlignment="CENTER">
-         <font>
-            <Font size="24.0" />
-         </font></Text>
-      <TextField fx:id="memberId" layoutX="29.0" layoutY="140.0" promptText="Member Id" />
-      <Button fx:id="print" onAction="#search" layoutX="219.0" layoutY="140.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="69.0" text="Print" />
-      <Text fx:id="message" layoutX="29.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+        <AnchorPane prefHeight="61.0" prefWidth="406.0" style="-fx-background-color: #73D5B8;">
+            <children>
+                <Text fill="WHITE" layoutX="74.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Print Checkout Record">
+                    <font>
+                        <Font size="27.0" />
+                    </font>
+                </Text>
+                <Button fx:id="cancelBtn" layoutX="14.0" layoutY="16.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="33.0" style="-fx-background-color: transparent;">
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@/ui/arrow-left-white.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button layoutX="354.0" layoutY="13.0" mnemonicParsing="false" onAction="#logout" prefHeight="32.0" prefWidth="33.0" style="-fx-background-color: transparent;">
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@/ui/logout-variant-white.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </AnchorPane>
+      <AnchorPane layoutY="79.0" prefHeight="95.0" prefWidth="406.0" style="-fx-background-color: #73D5B8;">
+         <children>
+            <TextField fx:id="memberId" layoutX="77.0" layoutY="28.0" promptText="Member Id" />
+            <Button fx:id="print" layoutX="257.0" layoutY="28.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: #2fa17e;" text="Print" textFill="WHITE" />
+            <Text fx:id="message" fill="red" layoutX="14.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="379.0" />
+         </children>
+      </AnchorPane>
     </children>
 
 </AnchorPane>
