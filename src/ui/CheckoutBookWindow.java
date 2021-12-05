@@ -20,7 +20,7 @@ public class CheckoutBookWindow extends Stage implements LibWindow {
     public void init() {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/ui/CheckoutBook.fxml")));
-            Scene scene = new Scene(root, 600, 400);
+            Scene scene = new Scene(root, 600, 444);
             setScene(scene);
             isInitialized(true);
         } catch (IOException e) {

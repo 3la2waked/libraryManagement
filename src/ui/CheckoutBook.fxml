@@ -1,31 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.CheckoutController">
+<AnchorPane prefHeight="444.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.CheckoutController">
    <children>
-      <TextField fx:id="memberIdTF" layoutX="220.0" layoutY="137.0" />
-      <TextField fx:id="isbnTF" layoutX="220.0" layoutY="187.0" />
-      <Label layoutX="129.0" layoutY="142.0" text="Member ID *" />
-      <Label layoutX="162.0" layoutY="192.0" text="ISBN *" />
-      <Button fx:id="checkoutBtn" layoutX="309.0" layoutY="266.0" mnemonicParsing="false" onAction="#checkoutBook" text="Checkout" />
-      <Button fx:id="cancelBtn" layoutX="244.0" layoutY="266.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
-      <Text fx:id="errorTxt" fill="#ff5050" layoutX="220.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <TableView fx:id="table" layoutX="70.0" layoutY="308.0" prefHeight="78.0" prefWidth="478.0" visible="false">
-        <columns>
-        </columns>
-      </TableView>
-      <Text layoutX="194.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checkout book">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Text>
-      <ChoiceBox fx:id="memberIdCB" layoutX="390.0" layoutY="137.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="isbnCB" layoutX="390.0" layoutY="187.0" prefWidth="150.0" />
+      <AnchorPane prefHeight="61.0" prefWidth="600.0" style="-fx-background-color: #73D5B8;">
+         <children>
+            <Text fill="WHITE" layoutX="74.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checkout Book">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Text>
+            <Button fx:id="cancelBtn" layoutX="14.0" layoutY="16.0" mnemonicParsing="false" onAction="#cancel" prefHeight="32.0" prefWidth="33.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/arrow-left-white.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="548.0" layoutY="16.0" mnemonicParsing="false" onAction="#logout" prefHeight="32.0" prefWidth="33.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/ui/logout-variant-white.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="75.0" prefHeight="373.0" prefWidth="600.0" style="-fx-background-color: #73d5b8;">
+         <children>
+            <TextField fx:id="memberIdTF" layoutX="122.0" layoutY="28.0" />
+            <TextField fx:id="isbnTF" layoutX="122.0" layoutY="78.0" />
+            <Label layoutX="31.0" layoutY="33.0" text="Member ID *" textFill="WHITE" />
+            <Label layoutX="31.0" layoutY="83.0" text="ISBN *" textFill="WHITE" />
+            <Button fx:id="checkoutBtn" layoutX="122.0" layoutY="157.0" mnemonicParsing="false" onAction="#checkoutBook" style="-fx-background-color: #2fa17e;" text="Checkout" textFill="WHITE" />
+            <Text fx:id="errorTxt" fill="#ff5050" layoutX="31.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="411.0" />
+            <ChoiceBox fx:id="memberIdCB" layoutX="292.0" layoutY="28.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="isbnCB" layoutX="292.0" layoutY="78.0" prefWidth="150.0" />
+            <TableView fx:id="table" layoutX="14.0" layoutY="202.0" prefHeight="144.0" prefWidth="573.0" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

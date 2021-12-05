@@ -58,6 +58,12 @@ public class CheckoutController {
     }
 
     @FXML
+    public void logout() {
+        Start.hideAllWindows();
+        Start.primStage().show();
+    }
+
+    @FXML
     public void checkoutBook() {
         table.setVisible(false);
         table.getItems().clear();
