@@ -63,10 +63,15 @@ public class AddBookController {
 	public void initialize() {
 		authorsList.getItems().add("First Name | Last Name | Telephone | Street | City | State | Zip");
 	}
-	public void back(){
+	public void back() {
 		Start.hideAllWindows();
 		MainWindow.INSTANCE.init();
 		MainWindow.INSTANCE.show();
+	}
+
+	public void logout() {
+		Start.hideAllWindows();
+		Start.primStage().show();
 	}
 
 	public void cleanAuthor(){

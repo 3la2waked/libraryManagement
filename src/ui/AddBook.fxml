@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
@@ -9,35 +15,60 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="914.0" prefWidth="1016.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.AddBookController">
+<AnchorPane prefHeight="511.0" prefWidth="891.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.AddBookController">
     <children>
-
-      <Button fx:id="back" layoutX="14.0" layoutY="520.0" mnemonicParsing="false" onAction="#back" prefHeight="42.0" prefWidth="100.0" text="&lt;&lt; Back" />
-      <Text fx:id="memberName" layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Book" textAlignment="CENTER">
-         <font>
-            <Font size="24.0" />
-         </font></Text>
-      <TextField fx:id="isbn" layoutX="182.0" layoutY="59.0" prefHeight="26.0" prefWidth="200.0" />
-      <TextField fx:id="title" layoutX="182.0" layoutY="94.0" prefHeight="26.0" prefWidth="200.0" />
-      <TextField fx:id="maxCheckoutLength" layoutX="182.0" layoutY="131.0" prefHeight="26.0" prefWidth="200.0" />
-      <Group layoutX="211.0" layoutY="260.0" />
-      <ListView fx:id="authorsList" editable="true" layoutX="183.0" layoutY="172.0" prefHeight="200.0" prefWidth="342.0" />
-      <TextField fx:id="fname" layoutX="18.0" layoutY="389.0" prefHeight="26.0" prefWidth="142.0" promptText="First Name" />
-      <TextField fx:id="lname" layoutX="161.0" layoutY="389.0" prefHeight="26.0" prefWidth="142.0" promptText="First Name" />
-      <TextField fx:id="telephone" layoutX="307.0" layoutY="389.0" prefHeight="26.0" prefWidth="92.0" promptText="Telephone" />
-      <TextField fx:id="street" layoutX="18.0" layoutY="431.0" prefHeight="26.0" prefWidth="92.0" promptText="Street" />
-      <TextField fx:id="city" layoutX="114.0" layoutY="431.0" prefHeight="26.0" prefWidth="92.0" promptText="City" />
-      <TextField fx:id="state" layoutX="211.0" layoutY="431.0" prefHeight="26.0" prefWidth="92.0" promptText="State" />
-      <TextField fx:id="zip" layoutX="307.0" layoutY="431.0" prefHeight="26.0" prefWidth="92.0" promptText="Zip" />
-      <TextArea fx:id="bio" layoutX="414.0" layoutY="389.0" prefHeight="70.0" prefWidth="114.0" promptText="Bio" />
-      <Button fx:id="add" layoutX="540.0" layoutY="430.0" mnemonicParsing="false" onAction="#addAuthor" prefHeight="28.0" prefWidth="92.0" text="Add" />
-      <Button fx:id="save" layoutX="512.0" layoutY="517.0" mnemonicParsing="false" onAction="#save" prefHeight="42.0" prefWidth="100.0" text="Save Book" />
-      <Text fx:id="message" layoutX="540.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text fx:id="isbnLabel" layoutX="131.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ISBN" />
-      <Text fx:id="titleLabel" layoutX="132.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" />
-      <Text fx:id="maxLabel" layoutX="18.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max Checkout Length" />
-      <Text fx:id="authorsLabel" layoutX="107.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Authors" />
-      <Text fx:id="messageBook" layoutX="18.0" layoutY="493.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <AnchorPane prefHeight="61.0" prefWidth="891.0" style="-fx-background-color: #73D5B8;">
+         <children>
+            <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="33.0" style="-fx-background-color: transparent;">
+              <graphic>
+                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@/ui/arrow-left-white.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </Button>
+            <Text fx:id="memberName" fill="WHITE" layoutX="80.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Book" textAlignment="CENTER">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Text>
+           <Button fx:id="logout" layoutX="820.0" layoutY="14.0" mnemonicParsing="false" onAction="#logout" prefHeight="32.0" prefWidth="33.0" style="-fx-background-color: transparent;">
+             <graphic>
+               <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                 <image>
+                   <Image url="@/ui/logout-variant-white.png" />
+                 </image>
+               </ImageView>
+             </graphic>
+           </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="81.0" prefHeight="433.0" prefWidth="891.0" style="-fx-background-color: #73D5B8;">
+         <children>
+            <TextField fx:id="isbn" layoutX="178.0" layoutY="23.0" prefHeight="26.0" prefWidth="200.0" />
+            <Text fx:id="isbnLabel" fill="WHITE" layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ISBN" />
+            <TextField fx:id="title" layoutX="178.0" layoutY="64.0" prefHeight="26.0" prefWidth="200.0" />
+            <Text fx:id="titleLabel" fill="WHITE" layoutX="14.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" />
+            <TextField fx:id="maxCheckoutLength" layoutX="178.0" layoutY="108.0" prefHeight="26.0" prefWidth="200.0" />
+            <Text fx:id="maxLabel" fill="WHITE" layoutX="14.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max Checkout Length" />
+            <Text fx:id="authorsLabel" fill="WHITE" layoutX="14.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Authors" />
+            <ListView fx:id="authorsList" editable="true" layoutX="77.0" layoutY="154.0" prefHeight="200.0" prefWidth="302.0" />
+            <Label layoutX="412.0" layoutY="28.0" text="Add Author" textFill="WHITE" />
+            <TextField fx:id="fname" layoutX="412.0" layoutY="64.0" prefHeight="26.0" prefWidth="142.0" promptText="First Name" />
+            <TextField fx:id="lname" layoutX="564.0" layoutY="64.0" prefHeight="26.0" prefWidth="142.0" promptText="Last Name" />
+            <TextField fx:id="telephone" layoutX="412.0" layoutY="108.0" prefHeight="27.0" prefWidth="142.0" promptText="Telephone" />
+            <TextField fx:id="street" layoutX="412.0" layoutY="151.0" prefHeight="27.0" prefWidth="142.0" promptText="Street" />
+            <TextField fx:id="city" layoutX="564.0" layoutY="151.0" prefHeight="26.0" prefWidth="92.0" promptText="City" />
+            <TextField fx:id="state" layoutX="667.0" layoutY="151.0" prefHeight="26.0" prefWidth="92.0" promptText="State" />
+            <TextField fx:id="zip" layoutX="769.0" layoutY="151.0" prefHeight="26.0" prefWidth="92.0" promptText="Zip" />
+            <TextArea fx:id="bio" layoutX="412.0" layoutY="195.0" prefHeight="70.0" prefWidth="450.0" promptText="Bio" />
+            <Button fx:id="add" layoutX="768.0" layoutY="277.0" mnemonicParsing="false" onAction="#addAuthor" prefHeight="27.0" prefWidth="92.0" style="-fx-background-color: #2fa17e;" text="Add Author" textFill="WHITE" />
+            <Button fx:id="save" layoutX="278.0" layoutY="368.0" mnemonicParsing="false" onAction="#save" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #2fa17e;" text="Save Book" textFill="WHITE" />
+            <Text fx:id="message" layoutX="412.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="225.0" />
+            <Text fx:id="messageBook" layoutX="14.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="253.0" />
+         </children>
+      </AnchorPane>
     </children>
 
 </AnchorPane>
