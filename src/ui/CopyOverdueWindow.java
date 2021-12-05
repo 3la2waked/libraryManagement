@@ -28,7 +28,7 @@ public class CopyOverdueWindow extends Stage implements LibWindow {
 
 		try {
 			Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/ui/CopyOverdue.fxml")));
-			Scene scene = new Scene(root, 600, 500);
+			Scene scene = new Scene(root, 566, 500);
 			setScene(scene);
 			isInitialized(true);
 		} catch (IOException e) {

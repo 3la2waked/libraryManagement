@@ -57,7 +57,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="checkoutRecord1" contentDisplay="TOP" layoutX="312.0" layoutY="163.0" mnemonicParsing="false" onAction="#showCopyOverdue" prefHeight="135.0" prefWidth="135.0" style="-fx-background-color: #2FA17E;" text="Copy Overdue" textFill="WHITE">
+            <Button fx:id="checkoutRecord1" contentDisplay="TOP" layoutX="312.0" layoutY="163.0" mnemonicParsing="false" onAction="#showCopyOverdue" prefHeight="135.0" prefWidth="135.0" style="-fx-background-color: #2FA17E;" text="Overdue Copies" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="54.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
                      <image>

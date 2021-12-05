@@ -61,6 +61,12 @@ public class CopyOverdueController {
 		}
 	}
 
+	@FXML
+	public void logout() {
+		Start.hideAllWindows();
+		Start.primStage().show();
+	}
+
 	private void updateTable(ObservableList<BookCopy> bc) {
 		tableView.getItems().clear();
 		tableView.getColumns().clear();
