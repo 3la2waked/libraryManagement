@@ -1,15 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.SystemController">
+<AnchorPane prefHeight="485.0" prefWidth="461.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.SystemController">
    <children>
-      <Button fx:id="addMember" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showAddMember" prefHeight="135.0" prefWidth="135.0" text="Add Library Member" />
-      <Button fx:id="addBook" layoutX="161.0" layoutY="14.0" mnemonicParsing="false" onAction="#showAddBook" prefHeight="135.0" prefWidth="135.0" text="Add Book" />
-      <Button fx:id="checkoutBook" layoutX="308.0" layoutY="14.0" mnemonicParsing="false" onAction="#showCheckoutBook" prefHeight="135.0" prefWidth="135.0" text="Checkout Book" />
-      <Button fx:id="addBookCopy" layoutX="14.0" layoutY="162.0" mnemonicParsing="false" onAction="#showAddBookCopy" prefHeight="135.0" prefWidth="135.0" text="Add Book Copy" />
-      <Button fx:id="checkoutRecord" layoutX="163.0" layoutY="162.0" mnemonicParsing="false" onAction="#showCheckoutRecord" prefHeight="135.0" prefWidth="135.0" text="Checkout Record" />
-      <Button fx:id="checkoutRecord1" layoutX="308.0" layoutY="162.0" mnemonicParsing="false" onAction="#showCopyOverdue" prefHeight="135.0" prefWidth="135.0" text="Copy Overdue" />
+      <AnchorPane layoutY="80.0" prefHeight="405.0" prefWidth="461.0" style="-fx-background-color: #73D5B8;">
+         <children>
+            <Button fx:id="addMember" contentDisplay="TOP" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showAddMember" prefHeight="135.0" prefWidth="135.0" style="-fx-background-color: #2FA17E;" text="Add Library Member" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="54.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="/ui/account-multiple-plus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="addBook" contentDisplay="TOP" layoutX="163.0" layoutY="14.0" mnemonicParsing="false" onAction="#showAddBook" prefHeight="135.0" prefWidth="135.0" style="-fx-background-color: #2FA17E;" text="Add Book" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="54.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="/ui/book-plus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="checkoutBook" contentDisplay="TOP" layoutX="14.0" layoutY="163.0" mnemonicParsing="false" onAction="#showCheckoutBook" prefHeight="135.0" prefWidth="135.0" style="-fx-background-color: #2FA17E;" text="Checkout Book" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="54.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="/ui/credit-card-check-outline.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="addBookCopy" contentDisplay="TOP" layoutX="312.0" layoutY="14.0" mnemonicParsing="false" onAction="#showAddBookCopy" prefHeight="135.0" prefWidth="135.0" style="-fx-background-color: #2FA17E;" text="Add Book Copy" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="54.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="/ui/book-plus-multiple.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="checkoutRecord" contentDisplay="TOP" layoutX="163.0" layoutY="163.0" mnemonicParsing="false" onAction="#showCheckoutRecord" prefHeight="135.0" prefWidth="135.0" style="-fx-background-color: #2FA17E;" text="Checkout Record" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="54.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="/ui/printer.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="checkoutRecord1" contentDisplay="TOP" layoutX="312.0" layoutY="163.0" mnemonicParsing="false" onAction="#showCopyOverdue" prefHeight="135.0" prefWidth="135.0" style="-fx-background-color: #2FA17E;" text="Copy Overdue" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="54.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="/ui/clipboard-text-clock.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="61.0" prefWidth="461.0" style="-fx-background-color: #73D5B8;">
+         <children>
+            <Button fx:id="logoutBtn" layoutX="409.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="/ui/logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -29,15 +29,23 @@ public class SystemController implements ControllerInterface {
 	private Button checkoutBook;
 
 	@FXML
+	private Button logoutBtn;
+
+	@FXML
 	public void initialize() {
 		if (currentAuth == Auth.LIBRARIAN) {
-			addMember.setVisible(false);
-			addBook.setVisible(false);
-			addBookCopy.setVisible(false);
+			addMember.setDisable(true);
+			addBook.setDisable(true);
+			addBookCopy.setDisable(true);
 		}
 		if (currentAuth == Auth.ADMIN) {
-			checkoutBook.setVisible(false);
+			checkoutBook.setDisable(true);
 		}
+
+		logoutBtn.setOnAction(actionEvent -> {
+			Start.hideAllWindows();
+			Start.primStage().show();
+		});
 	}
 	
 	public void login(String id, String password) throws LoginException {

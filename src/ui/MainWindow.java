@@ -18,7 +18,7 @@ public class MainWindow extends Stage implements LibWindow {
     public void init() {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/ui/MainScreen.fxml")));
-            Scene scene = new Scene(root, 460, 400);
+            Scene scene = new Scene(root, 461, 386);
             setScene(scene);
             isInitialized(true);
         } catch (IOException e) {

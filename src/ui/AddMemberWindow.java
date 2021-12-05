@@ -50,7 +50,7 @@ public class AddMemberWindow extends Stage implements LibWindow {
 		try {
 
 			Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/ui/AddMember.fxml")));
-			Scene scene = new Scene(root, 500, 500);
+			Scene scene = new Scene(root, 536, 342);
 			setScene(scene);
 			isInitialized(true);
 		} catch (IOException e) {

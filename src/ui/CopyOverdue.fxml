@@ -14,14 +14,14 @@
 <AnchorPane prefHeight="500" prefWidth="600" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="business.CopyOverdueController">
     <children>
 
-      <Button fx:id="back" layoutX="29.0" layoutY="434.0" mnemonicParsing="false" onAction="#back" prefHeight="42.0" prefWidth="100.0" text="&lt;&lt; Back" />
+      <Button fx:id="back" layoutX="212.0" layoutY="444.0" mnemonicParsing="false" onAction="#back" prefHeight="42.0" prefWidth="100.0" text="&lt;&lt; Back" />
       <Text fx:id="memberName" layoutX="31.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Copy Overdue" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font></Text>
       <TextField fx:id="isbn" layoutX="31.0" layoutY="85.0" promptText="Isbn" />
       <Button fx:id="print" layoutX="360.0" layoutY="85.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="69.0" text="Search" />
-      <Text fx:id="message" layoutX="29.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="message" fill="#ff4343" layoutX="30.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <TableView fx:id="tableView" layoutX="31.0" layoutY="134.0" prefHeight="280.0" prefWidth="538.0" />
       <ChoiceBox fx:id="isbnCB" layoutX="199.0" layoutY="85.0" prefWidth="150.0" />
     </children>
