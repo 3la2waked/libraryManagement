@@ -84,6 +84,10 @@ public class CopyOverdueController {
 		titleCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getBook().getTitle()));
 		titleCol.setText("Title");
 
+		TableColumn<BookCopy, String> noCopiesCol = new TableColumn<>();
+		noCopiesCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper("" + cellData.getValue().getBook().getCopies().length));
+		noCopiesCol.setText("No. of Copies");
+
 		TableColumn<BookCopy, String> duedateCol = new TableColumn<>();
 		duedateCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getCheckoutRecordEntry().getDueDate().format(DateTimeFormatter.ofPattern("MM/dd/yyyy"))));
 		duedateCol.setText("Due Date");
@@ -92,7 +96,7 @@ public class CopyOverdueController {
 		memberCol.setCellValueFactory(cellData -> new ReadOnlyStringWrapper("" + cellData.getValue().getCheckoutRecordEntry().getCheckoutRecord().getLibraryMember().toString()));
 		memberCol.setText("Library Member");
 
-		tableView.getColumns().addAll(copyNoCol, isbnCol, titleCol, memberCol);
+		tableView.getColumns().addAll(copyNoCol, isbnCol, titleCol, noCopiesCol, memberCol);
 	}
 
 
